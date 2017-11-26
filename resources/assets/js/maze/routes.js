@@ -3,14 +3,18 @@ export default {
     question: {
       store: () => "/question",
       update: (id) => "/question/" + id,
-      all: () => "/question/all"
+      all: () => "/question/all",
+      destroy: (id) => `/question/` + id,
     },
-    root: '/'
+    square: {
+      store: () => "/square",
+    },
+    root: '/question'
   },
   local: {
     question: {
       create: (squareIndex) => `/${squareIndex}/question/create`,
-      edit: (questionId, squareIndex) => `/${squareIndex}/question/${questionId}/edit`
+      edit: (questionId, squareIndex) => `/${squareIndex}/question/${questionId}/edit`,
     }
   }
 };

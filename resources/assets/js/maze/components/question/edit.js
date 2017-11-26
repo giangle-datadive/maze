@@ -4,10 +4,14 @@ import {connect} from 'react-redux';
 
 const Edit = ({match, questions, answers}) => {
   const question = questions.find(question => question.id === parseInt(match.params.questionId));
+  const listAnswers = answers.filter(answer => answer.question_id === question.id);
+  if(!question || !listAnswers.length) {
+    return null;
+  }
 
   return <QuestionForm
     question={question}
-    answers={answers.filter(answer => answer.question_id === question.id)}
+    answers={listAnswers}
     isUpdate={true}/>
 };
 

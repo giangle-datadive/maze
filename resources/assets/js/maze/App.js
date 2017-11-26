@@ -35,7 +35,10 @@ class App extends Component {
     //Get all question
     axios.get(routes.api.question.all()).then(({data}) => {
       this.props.addQuestion(data.questions);
-      this.props.addAnswer(data.answers)
+      this.props.addAnswer(data.answers);
+      this.setState({
+        selected: data.squares,
+      })
     });
   }
 
@@ -63,12 +66,10 @@ class App extends Component {
     });
   };
 
-  addQuestion = (index) => (event) => {
-    alert('add question');
-  };
-
-  deleteQuestion = (index) => () => {
-    alert('delete question' + index);
+  deleteQuestion = (id) => () => {
+    axios.delete(routes.api.question.destroy(id)).then(() => {
+      window.location.href = routes.api.root;
+    });
   };
 
   closeContextMenu = (event) => {
@@ -77,6 +78,13 @@ class App extends Component {
         ...this.state.contextMenu,
         show: false,
       }
+    });
+  };
+
+  save = (event) => {
+    event.preventDefault();
+    axios.post(routes.api.square.store(), {squares: this.state.selected}).then(() => {
+      alert('Lưu thành công');
     });
   };
 
@@ -102,11 +110,13 @@ class App extends Component {
           </div>
           {contextMenu.show
             ? <ContextMenu
-              addQuestion={this.addQuestion(contextMenu.squareIndex)}
-              deleteQuestion={this.deleteQuestion(contextMenu.squareIndex)}
+              deleteQuestion={this.deleteQuestion}
               contextMenu={contextMenu}/>
             : null
           }
+          <div className="save-btn">
+            <button onClick={this.save}>Lưu lại</button>
+          </div>
           <Route path="/:squareIndex/question/create" component={CreateQuestion}/>
           <Route path="/:squareIndex/question/:questionId/edit" component={EditQuestion}/>
         </div>

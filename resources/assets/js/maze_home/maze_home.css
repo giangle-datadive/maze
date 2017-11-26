@@ -1,0 +1,65 @@
+#app {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.maze {
+    width: 981px;
+    height: 495px;
+    background: url('/misoft2.png') no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.square {
+    background-color:rgba(0, 0, 0, 0.2);
+    width: 2.77%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.start {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(0,0,0,0.5);
+}
+.blue-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: #2a88bd;
+}
+.question {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(0,0,0,0.5);
+}
+.question-content {
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+}
+.group-btn {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.button-primary {
+    margin-left: 10px;
+}

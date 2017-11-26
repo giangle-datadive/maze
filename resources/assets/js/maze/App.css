@@ -5,15 +5,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.content {
-  padding: 40px;
+  flex-direction: column;
 }
 
 .maze {
-  width: 1308px;
-  height: 660px;
+  width: 981px;
+  height: 495px;
   background: url('/misoft.png') no-repeat;
   display: flex;
   flex-direction: row;
@@ -21,7 +18,7 @@
 }
 
 .square {
-  background-color:rgba(0, 0, 0, 0.5);
+  background-color:rgba(0, 0, 0, 0.2);
   width: calc(2.77% - 3px);
   border: 1.5px solid #394f59;
   display: flex;
@@ -100,4 +97,8 @@
 .alert-success {
   border-color: greenyellow; 
   color: greenyellow;
+}
+
+.save-btn {
+    margin-top: 30px;
 }

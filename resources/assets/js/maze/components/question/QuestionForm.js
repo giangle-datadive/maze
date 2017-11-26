@@ -7,7 +7,7 @@ import { addQuestion, updateQuestion } from "../../actions/questions";
 import { addAnswer, updateAnswer } from "../../actions/answers";
 import routes from '../../routes';
 
-const intitalAnswer = {
+const initialAnswer = {
   content: "",
   is_correct: 0
 };
@@ -23,18 +23,11 @@ class QuestionForm extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      question: nextProps.question,
-      answers: nextProps.answers,
-    });
-  }
-
   backToHome = event => {
     if (this.refs.form.contains(event.target)) {
       return;
     }
-    this.props.history.push("/");
+    this.props.history.push(routes.api.root);
   };
 
   saveQuestion = event => {
@@ -89,13 +82,7 @@ class QuestionForm extends React.Component {
   };
 
   handleSuccess = ({ data }) => {
-    if(this.props.isUpdate) {
-      this.props.updateAnswer(data.answers);
-      this.props.updateQuestion(data.question);
-    }else {
-      this.props.addAnswer(data.answers);
-      this.props.addQuestion(data.question);
-    }
+    window.location.href = routes.api.root;
   };
 
   handleError = ({ response }) => {
@@ -134,11 +121,12 @@ class QuestionForm extends React.Component {
 
   addAnswer = () => {
     this.setState({
-      answers: this.state.answers.concat(intitalAnswer)
+      answers: this.state.answers.concat(initialAnswer)
     });
   };
 
-  deleteAnswer = index => () => {
+  deleteAnswer = index => (event) => {
+    event.preventDefault();
     this.setState({
       answers: this.state.answers.filter((answer, i) => index !== i)
     });

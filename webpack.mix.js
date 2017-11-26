@@ -14,3 +14,4 @@ let mix = require('laravel-mix');
 // mix.js('resources/assets/js/app.js', 'public/js')
 //    .sass('resources/assets/sass/app.scss', 'public/css');
 mix.react('resources/assets/js/maze/index.js', 'public/js/maze.js');
+mix.react('resources/assets/js/maze_home/index.js', 'public/js/maze_home.js');

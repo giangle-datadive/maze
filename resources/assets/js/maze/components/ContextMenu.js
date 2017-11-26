@@ -5,7 +5,7 @@ import routes from '../routes';
 import {connect} from 'react-redux';
 import {remoteQuestion} from "../actions/questions";
 
-const ContextMenu = ({contextMenu, questions}) => {
+const ContextMenu = ({contextMenu, questions, deleteQuestion}) => {
   const style = {top: contextMenu.top, left: contextMenu.left};
   const question = questions.find(question => question.square_index === contextMenu.squareIndex);
 
@@ -26,7 +26,7 @@ const ContextMenu = ({contextMenu, questions}) => {
 
       {question
         ? (
-          <div className="menu-item">
+          <div onClick={deleteQuestion(question.id)} className="menu-item">
             Xóa câu hỏi
           </div>
         ) : null

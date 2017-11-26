@@ -20,7 +20,7 @@ const Answer = ({answer, onChange, onDelete}) => {
     <label>
       <input onChange={onCheckboxChange} type="checkbox" checked={answer.is_correct}/>
       <input onChange={onInputChange} value={answer.content} type="text" className="answer-input"/>
-      <button onClick={onDelete} className="delete-answer">Xóa</button>
+      <button type="button" onClick={onDelete} className="delete-answer">Xóa</button>
     </label>
   );
 }
