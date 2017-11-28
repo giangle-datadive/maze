@@ -38,9 +38,7 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         $question = Question::findOrFail($id);
-        $this->validate($request, array_merge($this->getRule(), [
-            'square_index' => 'required|unique:questions,square_index,' . $question->id,
-        ]));
+        $this->validate($request, $this->getRule());
         $question->update($request->only(['content']));
         $question->answers()->delete();
         foreach ($request->get('answers') as $answer) {
@@ -55,7 +53,7 @@ class QuestionController extends Controller
         return [
             'content' => 'required',
             'answers.*.content' => 'required',
-            'square_index' => 'required|unique:questions,square_index'
+            'square_index' => 'required'
         ];
     }
 

@@ -47,7 +47,8 @@ class MazeHome extends React.Component {
     const {squares, currentSquareIndex, questions, answers} = this.state;
     if (prevState.currentSquareIndex !== currentSquareIndex) {
       const squareIndex = squares[currentSquareIndex];
-      const question = questions.find(question => question.square_index === squareIndex);
+      const squareQuestions = questions.filter(question => question.square_index === squareIndex);
+      const question = squareQuestions[Math.floor(Math.random() * squareQuestions.length)];
       if (question) {
         clearInterval(this.next);
         this.setState({
@@ -156,7 +157,7 @@ class MazeHome extends React.Component {
           isStart && isLose
             ? (
               <Button
-                playAgian={this.playAgain}
+                playAgain={this.playAgain}
                 showPlayAgain={true} text="Chia buồn, bạn đã thua"/>
             ) : null
         }
@@ -165,7 +166,7 @@ class MazeHome extends React.Component {
           isStart && isWin
             ? (
               <Button
-                playAgian={this.playAgain}
+                playAgain={this.playAgain}
                 showPlayAgain={true} text="Chúc mừng bạn đã trả lời đúng hết tất cả câu hỏi"/>
             ) : null
         }

@@ -1,104 +1,116 @@
 .app {
-  background-color: #363535;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    background-color: #363535;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .maze {
-  width: 981px;
-  height: 495px;
-  background: url('/misoft.png') no-repeat;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+    width: 981px;
+    height: 495px;
+    background: url('/misoft.png') no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .square {
-  background-color:rgba(0, 0, 0, 0.2);
-  width: calc(2.77% - 3px);
-  border: 1.5px solid #394f59;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: calc(2.77% - 3px);
+    border: 1.5px solid #394f59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square-nonborder {
-  border: none;
-  width: 2.77%;
-  background-color: transparent;
+    border: none;
+    width: 2.77%;
+    background-color: transparent;
 }
 
 .square-selected {
-  background-color: rgba(57, 79, 89, 0.7);
+    background-color: rgba(57, 79, 89, 0.7);
 }
+
 .question-img {
-  width: 20px;
-  height: 20px;
-  position: absolute;
+    width: 20px;
+    height: 20px;
+    position: absolute;
 }
 
 .context-menu {
-  position: fixed;
-  background-color: #ffffff;
-  border: 1px solid;
-  padding: 10px 0;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 14px;
+    position: fixed;
+    background-color: #ffffff;
+    border: 1px solid;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    max-width: 600px;
 }
 
 .menu-item {
-  border: 1px solid #eeeeee;
-  padding: 5px 15px;
-  text-decoration: none;
+    border: 1px solid #eeeeee;
+    padding: 5px 15px;
+    text-decoration: none;
 }
 
 .question {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .question-form {
-  width: 500px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 7px;
+    width: 500px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 7px;
 }
 
 .answer-input {
-  height: 30px;
+    height: 30px;
 }
+
 .delete-answer {
-  margin-left: 10px;
-  color: red;
+    margin-left: 10px;
+    color: red;
 }
 
 .alert {
-  border: 1px solid;
-  padding: 5px 15px;
-  border-radius: 4px;
+    border: 1px solid;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
 
 .alert-warning {
-  border-color: orange;
-  color: orange;
+    border-color: orange;
+    color: orange;
 }
 
 .alert-success {
-  border-color: greenyellow; 
-  color: greenyellow;
+    border-color: greenyellow;
+    color: greenyellow;
 }
 
 .save-btn {
     margin-top: 30px;
+}
+
+.edit {
+    margin-left: 10px;
+}
+
+.delete {
+    margin-left: 10px;
+    color: firebrick;
 }

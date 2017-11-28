@@ -41,8 +41,8 @@ class Question extends React.Component {
       <div className="question" onContextMenu={this.onContextMenu}>
         <div className="question-content">
           <h4>Phải trả lời câu hỏi đề tiếp tục</h4>
-          <pre>{currentQuestion.data.content}</pre>
-          <h6>Danh sách đáp án</h6>
+          <div className="question-content-text">{currentQuestion.data.content}</div>
+          <h6 className="list-answer">Danh sách đáp án</h6>
 
           {currentQuestion.answers.map((answer, index) => (
             <div key={index}>

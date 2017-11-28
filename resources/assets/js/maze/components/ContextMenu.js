@@ -7,31 +7,26 @@ import {remoteQuestion} from "../actions/questions";
 
 const ContextMenu = ({contextMenu, questions, deleteQuestion}) => {
   const style = {top: contextMenu.top, left: contextMenu.left};
-  const question = questions.find(question => question.square_index === contextMenu.squareIndex);
+  const squareQuestions = questions.filter(question => question.square_index === contextMenu.squareIndex);
 
   return (
     <div style={style} className="context-menu">
-      {question
-        ? (
-          <Link to={routes.local.question.edit(question.id, contextMenu.squareIndex)} className="menu-item">
-            Sửa câu hỏi
-          </Link>
-        )
-        : (
-          <Link to={routes.local.question.create(contextMenu.squareIndex)} className="menu-item">
-            Thêm Câu hỏi
-          </Link>
-        )
-      }
-
-      {question
-        ? (
-          <div onClick={deleteQuestion(question.id)} className="menu-item">
-            Xóa câu hỏi
+      <Link to={routes.local.question.create(contextMenu.squareIndex)} className="menu-item">
+        Thêm Câu hỏi
+      </Link>
+      {squareQuestions.map((question, index) => (
+        <div>
+          <div className="menu-item">
+            {question.content}
+            <Link className="edit" to={routes.local.question.edit(question.id, contextMenu.squareIndex)}>
+              Sửa
+            </Link>
+            <span className="delete" onClick={deleteQuestion(question.id)}>
+              Xóa
+            </span>
           </div>
-        ) : null
-      }
-
+        </div>
+      ))}
     </div>
   );
 };
